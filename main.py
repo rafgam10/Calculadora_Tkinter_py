@@ -9,6 +9,32 @@ janela.title("Calculadora")
 preto="black"
 laraja="#FE5F2F"
 cinza="#ccc"
+calculoOperacoes=""
+#Lógica da Calculadora:
+
+def enviarNumeroPara(char):
+    global calculoOperacoes
+    calculoOperacoes+=str(char)
+    textoDeEntrada.set(calculoOperacoes)
+
+
+def deletarNumero():
+    global calculoOperacoes
+    texto = calculoOperacoes[:-1]#Remover o ultimo elemento da String;
+    calculoOperacoes=texto #Atualizar a variavel novamente com outro valor;
+    textoDeEntrada.set(calculoOperacoes)
+
+def limparDisplay():
+    global calculoOperacoes
+    calculoOperacoes=""
+    textoDeEntrada.set(calculoOperacoes)
+
+def funcaoIgual():
+    global calculoOperacoes
+    resultadoCalculo=str(eval(calculoOperacoes))
+    textoDeEntrada.set(resultadoCalculo)
+    calculoOperacoes=resultadoCalculo
+
 
 #Display de numeros:
 textoDeEntrada = StringVar()
@@ -31,8 +57,9 @@ btn7 = Button(
     border=10,
     bg=cinza,
     fg=preto,
+    command=lambda:enviarNumeroPara("7")
 
-).grid(row=2, column=0, padx=0,pady=0)
+).grid(row=2, column=0, padx=0,pady=0, sticky="NSEW")
 
 btn8 = Button(
     janela,
@@ -41,8 +68,9 @@ btn8 = Button(
     border=10,
     bg=cinza,
     fg=preto,
+    command=lambda:enviarNumeroPara("8")
 
-).grid(row=2, column=1, padx=0,pady=0)
+).grid(row=2, column=1, padx=0,pady=0, sticky="NSEW")
 
 btn9 = Button(
     janela,
@@ -51,8 +79,9 @@ btn9 = Button(
     border=10,
     bg=cinza,
     fg=preto,
+    command=lambda:enviarNumeroPara("9")
 
-).grid(row=2, column=2, padx=0,pady=0)
+).grid(row=2, column=2, padx=0,pady=0, sticky="NSEW")
 
 btnDEL = Button(
     janela,
@@ -61,8 +90,9 @@ btnDEL = Button(
     border=10,
     bg=laraja,
     fg=preto,
-    width=3
-).grid(row=2, column=3, padx=0,pady=0)
+    width=3,
+    command=deletarNumero
+).grid(row=2, column=3, padx=0,pady=0, sticky="NSEW")
 
 btnAC = Button(
     janela,
@@ -71,8 +101,9 @@ btnAC = Button(
     border=10,
     bg=laraja,
     fg=preto,
-    width=3
-).grid(row=2, column=4, padx=0,pady=0)
+    width=3,
+    command=limparDisplay
+).grid(row=2, column=4, padx=0,pady=0, sticky="NSEW")
 
 #Buttons da linha 2:
 btn4 = Button(
@@ -82,8 +113,9 @@ btn4 = Button(
     border=10,
     bg=cinza,
     fg=preto,
+    command=lambda:enviarNumeroPara("4")
 
-).grid(row=3, column=0, padx=0,pady=0)
+).grid(row=3, column=0, padx=0,pady=0, sticky="NSEW")
 
 btn5 = Button(
     janela,
@@ -92,8 +124,9 @@ btn5 = Button(
     border=10,
     bg=cinza,
     fg=preto,
+    command=lambda:enviarNumeroPara("5")
 
-).grid(row=3, column=1, padx=0,pady=0)
+).grid(row=3, column=1, padx=0,pady=0, sticky="NSEW")
 
 btn6 = Button(
     janela,
@@ -102,8 +135,9 @@ btn6 = Button(
     border=10,
     bg=cinza,
     fg=preto,
+    command=lambda:enviarNumeroPara("6")
 
-).grid(row=3, column=2, padx=0,pady=0)
+).grid(row=3, column=2, padx=0,pady=0, sticky="NSEW")
 
 btnMultiplica = Button(
     janela,
@@ -112,8 +146,9 @@ btnMultiplica = Button(
     border=10,
     bg=cinza,
     fg=preto,
-    width=3
-).grid(row=3, column=3, padx=0,pady=0)
+    width=3,
+    command=lambda:enviarNumeroPara("*")
+).grid(row=3, column=3, padx=0,pady=0, sticky="NSEW")
 
 btnDividi = Button(
     janela,
@@ -122,8 +157,9 @@ btnDividi = Button(
     border=10,
     bg=cinza,
     fg=preto,
-    width=3
-).grid(row=3, column=4, padx=0,pady=0)
+    width=3,
+    command=lambda:enviarNumeroPara("/")
+).grid(row=3, column=4, padx=0,pady=0, sticky="NSEW")
 
 
 #Buttons da linha 3:
@@ -134,8 +170,9 @@ btn1 = Button(
     border=10,
     bg=cinza,
     fg=preto,
+    command=lambda:enviarNumeroPara("1")
 
-).grid(row=4, column=0, padx=0,pady=0)
+).grid(row=4, column=0, padx=0,pady=0, sticky="NSEW")
 
 btn2 = Button(
     janela,
@@ -144,8 +181,9 @@ btn2 = Button(
     border=10,
     bg=cinza,
     fg=preto,
+    command=lambda:enviarNumeroPara("2")
 
-).grid(row=4, column=1, padx=0,pady=0)
+).grid(row=4, column=1, padx=0,pady=0, sticky="NSEW")
 
 btn3 = Button(
     janela,
@@ -154,18 +192,20 @@ btn3 = Button(
     border=10,
     bg=cinza,
     fg=preto,
+    command=lambda:enviarNumeroPara("3")
 
-).grid(row=4, column=2, padx=0,pady=0)
+).grid(row=4, column=2, padx=0,pady=0, sticky="NSEW")
 
-btnMultiplica = Button(
+btnSomar = Button(
     janela,
     font="Arial 20 bold",
     text="+",
     border=10,
     bg=cinza,
     fg=preto,
-    width=3
-).grid(row=4, column=3, padx=0,pady=0)
+    width=3,
+    command=lambda:enviarNumeroPara("+")
+).grid(row=4, column=3, padx=0,pady=0, sticky="NSEW")
 
 btnMenos = Button(
     janela,
@@ -174,8 +214,9 @@ btnMenos = Button(
     border=10,  
     bg=cinza,
     fg=preto,
-    width=3
-).grid(row=4, column=4, padx=0,pady=0)
+    width=3,
+    command=lambda:enviarNumeroPara("-")
+).grid(row=4, column=4, padx=0,pady=0, sticky="NSEW")
 
 #Buttons da linha 4:
 btn0 = Button(
@@ -185,8 +226,9 @@ btn0 = Button(
     border=10,
     bg=cinza,
     fg=preto,
-    width=1
-).grid(row=5, column=0, padx=0,pady=0)
+    width=1,
+    command=lambda:enviarNumeroPara("0")
+).grid(row=5, column=0, padx=0,pady=0, sticky="NSEW")
 
 btnPonto = Button(
     janela,
@@ -195,8 +237,9 @@ btnPonto = Button(
     border=10,
     bg=cinza,
     fg=preto,
-    width=1
-).grid(row=5, column=1, padx=0,pady=0)
+    width=1,
+    command=lambda:enviarNumeroPara(".")
+).grid(row=5, column=1, padx=0,pady=0, sticky="NSEW")
 
 btnValor = Button(
     janela,
@@ -205,8 +248,9 @@ btnValor = Button(
     border=10,
     bg=cinza,
     fg=preto,
-    width=13
-).grid(row=5, column=2,columnspan=4, padx=0,pady=0)
+    width=13,
+    command=funcaoIgual
+).grid(row=5, column=2,columnspan=4, padx=0,pady=0, sticky="NSEW")
 
 
 #Loop do Janela e Start;
