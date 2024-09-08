@@ -1,4 +1,4 @@
-# Criando uma calculadora com Tkinter
+# Criando uma calculadora com Tkinter e implementando arquivos Exercutavel
 
 Criar a calculadora com **Tkinter** foi um processo interessante e desafiador, envolvendo tanto a construção da interface gráfica quanto a implementação da lógica por trás das operações matemáticas.
 
