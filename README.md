@@ -35,8 +35,12 @@ Após terminar a implementação, fiz testes com várias operações matemática
 
 **Design da Calculadora:**
 
-![Design da Calculadora Tkinter](/img/Design%20da%20Calculadora.png)
+<p align="center">
+  <img src="/img/Design da Calculadora.png" alt="Design da Calculadora Tkinter">
+</p>
 
 **Imagem da Calculadora:**
 
-![Imagem da Calculadora Tkinter](/img/Imagem%20da%20Calculadora.png)
+<p align="center">
+  <img src="/img/Imagem da Calculadora.png" alt="Imagem da Calculadora Tkinter">
+</p>
